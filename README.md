@@ -1,1 +1,1 @@
-<p> Integrated Laravel 9 with Vue and Tailwind on AdminLTE  </p>
+<p> Integrated Laravel 9 with Vue and Tailwind on AdminLTE (temp readme) </p>
