@@ -6,27 +6,45 @@ import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import { Link } from '@inertiajs/inertia-vue3';
+import 'admin-lte';
 
 const showingNavigationDropdown = ref(false);
 </script>
 
+<style>
+    @import "../../../node_modules/admin-lte/dist/css/adminlte.css";
+    @import "../../../node_modules/@fortawesome/fontawesome-free/css/all.css";
+
+    .fix{
+        bottom: 0;
+        float: none;
+        height: 100vh !important;
+        left: 0;
+        position: fixed !important;
+        top: 0;
+    }
+</style>
+
 <template>
     <div>
         <div class="min-h-screen bg-gray-100">
-            <nav class="bg-white border-b border-gray-100">
+
+              <!-- Main Sidebar Container -->
+
+            <nav class="bg-white border-b border-gray-100 main-header navbar-white navbar-light">
                 <!-- Primary Navigation Menu -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="flex justify-between h-16">
                         <div class="flex">
-                            <!-- Logo -->
-                            <div class="shrink-0 flex items-center">
-                                <Link :href="route('dashboard')">
-                                    <ApplicationLogo class="block h-9 w-auto" />
-                                </Link>
-                            </div>
-
                             <!-- Navigation Links -->
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <div class="hidden space-x-8 sm:-my-px sm:flex">
+                                <NavLink>
+                                    <a class="space-y-2" data-widget="pushmenu">
+                                        <div class="w-8 h-0.5 bg-gray-600"></div>
+                                        <div class="w-8 h-0.5 bg-gray-600"></div>
+                                        <div class="w-8 h-0.5 bg-gray-600"></div>
+                                    </a>
+                                </NavLink>
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </NavLink>
@@ -94,17 +112,53 @@ const showingNavigationDropdown = ref(false);
                 </div>
             </nav>
 
-            <!-- Page Heading -->
-            <header class="bg-white shadow" v-if="$slots.header">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    <slot name="header" />
-                </div>
-            </header>
 
-            <!-- Page Content -->
-            <main>
-                <slot />
-            </main>
+            <aside class="main-sidebar sidebar-dark-primary elevation-4">
+                <!-- Brand Logo -->
+                <a href="index3.html" class="brand-link">
+                    <ApplicationLogo class="block h-9 w-auto brand-image img-circle elevation-3" />
+                    <span class="brand-text font-weight-light">AdminLTE 3</span>
+                </a>
+
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <!-- Sidebar user panel (optional) -->
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                        <div class="image">
+                            <ApplicationLogo class="block h-9 w-auto" />
+                        </div>
+                        <div class="info">
+                            <a href="#" class="d-block">Alexander Pierce</a>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar Menu -->
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-user text-green"></i>
+                                    <p>
+                                        Users
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- /.sidebar-menu -->
+                </div>
+                <!-- /.sidebar -->
+            </aside>
+
+            <div class="content-wrapper">
+                <div class="content mt-4">
+                     <!-- Page Content -->
+                    <main>
+                        <slot />
+                    </main>
+                </div>
+            </div>
+
         </div>
     </div>
 </template>
