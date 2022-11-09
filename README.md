@@ -2,4 +2,4 @@
 
 ## ATTENTION!
 
-Login and Register components not integrated yet, Only the Dashboard
+Login and Register components not integrated yet, Only the Dashboard (too lazy)
